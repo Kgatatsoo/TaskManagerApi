@@ -2,7 +2,7 @@ from rest_framework import viewsets, permissions
 from .models import taskmanagerapp
 from .serializers import taskmanagerappserializer
 
-class taskmanagerappViewset(viewsets.ModelViewSet)
+class taskmanagerappViewset(viewsets.ModelViewSet):
  serializer_class = taskmanagerappserializer
  permission_classes = [permissions.IsAuthenticated]
 

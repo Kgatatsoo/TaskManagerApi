@@ -1,10 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class taskmanagerapp(models.Model);
+class taskmanagerapp(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    title = models.CharField(max_lenth=250)
-    description = models.TestField()
+    title = models.CharField(max_length=250)
+    description = models.TextField()
     completed = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
