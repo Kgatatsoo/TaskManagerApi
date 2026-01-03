@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from.models import taskmanagerapp
+from .models import Task
 
-class taskmanagerappserializer(serializers.ModelSerializer):
+class TaskSerializer(serializers.ModelSerializer):
     class Meta:
-        model = taskmanagerapp
-        fields ='__all__'
-        read_only_fields = ['user']
+        model = Task
+        fields = ['id', 'user', 'title', 'description', 'completed', 'created_at', 'updated_at']
+        read_only_fields = ['id', 'user', 'created_at', 'updated_at']

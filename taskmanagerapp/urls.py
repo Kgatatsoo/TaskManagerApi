@@ -1,10 +1,11 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import taskmanagerappViewset
+from .views import TaskViewSet, home
 
 router = DefaultRouter()
-router.register('taskmanagerapp', taskmanagerappViewset, basename= 'taskmanagerapp')
+router.register(r'tasks', TaskViewSet, basename='task')
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('', home, name='home'),
+    path('api/', include(router.urls)),
 ]
