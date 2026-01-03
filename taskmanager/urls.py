@@ -3,6 +3,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('taskmanagerapp.urls')),  # Include app URLs
-    path('auth/', include('rest_framework.urls')),  # DRF login/logout
+    path('auth/', include('djoser.urls')),
+    path('auth/', include('djoser.urls.authtoken')),  # this is fine, but check spelling/capitalization
+    path('api/', include('taskmanagerapp.urls')),
 ]

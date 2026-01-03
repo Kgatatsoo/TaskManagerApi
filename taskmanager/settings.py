@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'taskmanagerapp',
+    'djoser',
 ]
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
