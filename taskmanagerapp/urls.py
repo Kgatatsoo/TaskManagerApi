@@ -6,6 +6,6 @@ router = DefaultRouter()
 router.register(r'tasks', TaskViewSet, basename='tasks')
 
 urlpatterns = [
-    path('', home, name='home'),  # optional home page
+    path('', home, name='home'), 
     path('', include(router.urls)),
 ]
