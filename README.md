@@ -16,7 +16,7 @@ Djoser
 SQLite 
 
 **How to Setup?**
-git clone https://github.com/your-username/task-manager-api.git
+git clone https://github.com/Kgatatsoo/task-manager-api.git
 cd task-manager-api
 python -m venv venv
 source venv/Scripts/activate   # Windows
@@ -33,6 +33,6 @@ Authorization: Token your_token_here
 **Task Endpoints**
 GET /api/tasks/ – List tasks
 POST /api/tasks/ – Create task
-GET /api/tasks/<id>/ – View task
-PUT / PATCH /api/tasks/<id>/ – Update task
-DELETE /api/tasks/<id>/ – Delete task
+GET /api/tasks/1/ – View task
+PUT / PATCH /api/tasks/2/ – Update task
+DELETE /api/tasks/1/ – Delete task
