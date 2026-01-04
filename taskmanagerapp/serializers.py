@@ -2,12 +2,13 @@ from rest_framework import serializers
 from django.utils import timezone
 from .models import Task
 
+
 class TaskSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Task
         fields = '__all__'
-        read_only_fields = ['user']
+        read_only_fields = ['user', 'created_at', 'updated_at']
 
     def validate_due_date(self, value):
         if value <= timezone.now().date():
@@ -15,3 +16,15 @@ class TaskSerializer(serializers.ModelSerializer):
                 "Due date must be in the future."
             )
         return value
+
+    def validate(self, data):
+        """
+        Prevent editing completed tasks unless status is reverted
+        """
+        if self.instance:
+            if self.instance.status == 'Completed':
+                if data.get('status') != 'Pending':
+                    raise serializers.ValidationError(
+                        "Completed tasks cannot be edited unless reverted to Pending."
+                    )
+        return data

@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 
+
 class Task(models.Model):
 
     PRIORITY_CHOICES = [
@@ -15,7 +16,7 @@ class Task(models.Model):
         ('Completed', 'Completed'),
     ]
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="tasks")
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True)
     due_date = models.DateField()
@@ -25,6 +26,9 @@ class Task(models.Model):
         choices=STATUS_CHOICES,
         default='Pending'
     )
+
+    completed_at = models.DateTimeField(null=True, blank=True)  # ✅ NEW
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
