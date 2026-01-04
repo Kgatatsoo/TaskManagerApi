@@ -1,12 +1,16 @@
 
 from pathlib import Path
+from decouple import config
+import dj_database_url
+
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-30ke#*_*xtce^=e%1d)g)$1j4zr-=gbn1q3&70qime0f%px1wq'
 
-DEBUG = True
+SECRET_KEY = config('django-insecure-30ke#*_*xtce^=e%1d)g)$1j4zr-=gbn1q3&70qime0f%px1wq')
+DEBUG = config('DEBUG', default=False, cast=bool)
+
 
 ALLOWED_HOSTS = []
 
