@@ -16,10 +16,10 @@ Djoser
 SQLite 
 
 **How to Setup?**
-git clone https://github.com/Kgatatsoo/task-manager-api.git
-cd task-manager-api
+git clone https://github.com/Kgatatsoo/TaskManagerAPI.git
+cd TaskManagerAPI
 python -m venv venv
-source venv/Scripts/activate   # Windows
+source venv/Scripts/activate 
 pip install django djangorestframework djoser django-cors-headers
 python manage.py migrate
 python manage.py runserver
@@ -27,8 +27,7 @@ python manage.py runserver
 **Authentication**
 Register: POST /auth/users/
 Login for token: POST /auth/token/login/
-Add token to headers for protected endpoints:
-Authorization: Token your_token_here
+Add token to headers for protected endpoints.
 
 **Task Endpoints**
 GET /api/tasks/ – List tasks
