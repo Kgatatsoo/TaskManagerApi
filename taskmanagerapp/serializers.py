@@ -18,9 +18,7 @@ class TaskSerializer(serializers.ModelSerializer):
         return value
 
     def validate(self, data):
-        """
-        Prevent editing completed tasks unless status is reverted
-        """
+        
         if self.instance:
             if self.instance.status == 'Completed':
                 if data.get('status') != 'Pending':
