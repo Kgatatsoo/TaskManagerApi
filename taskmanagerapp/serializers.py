@@ -1,8 +1,17 @@
 from rest_framework import serializers
+from django.utils import timezone
 from .models import Task
 
 class TaskSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Task
-        fields = ['id', 'user', 'title', 'description', 'completed', 'created_at', 'updated_at']
-        read_only_fields = ['id', 'user', 'created_at', 'updated_at']
+        fields = '__all__'
+        read_only_fields = ['user']
+
+    def validate_due_date(self, value):
+        if value <= timezone.now().date():
+            raise serializers.ValidationError(
+                "Due date must be in the future."
+            )
+        return value
