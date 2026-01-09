@@ -1,9 +1,0 @@
-{
-    "editor.aiStats.enabled": false,
-    "editor.parameterHints.enabled": true,
-    "editor.pasteAs.enabled": true,
-    "diffEditor.hideUnchangedRegions.enabled": false,
-    "editor.stickyScroll.enabled": true,
-    "git.enabled": true,
-    "files.autoSave": "afterDelay"
-}
